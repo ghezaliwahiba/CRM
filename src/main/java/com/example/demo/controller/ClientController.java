@@ -26,9 +26,10 @@ public class ClientController {
         return dtos;
     }
 
+
     @PostMapping("clients")
-    public void addClient(@RequestBody Client client) {
-        clientService.add(client);
+    public void addClient(@RequestBody ClientDTO clientdto) {
+        clientService.add(clientdto);
     }
     @DeleteMapping("clients/{id}")
     public void delete(@PathVariable("id") Integer id) {

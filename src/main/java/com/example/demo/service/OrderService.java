@@ -1,5 +1,7 @@
 package com.example.demo.service;
 import com.example.demo.DAO.OrderRepository;
+import com.example.demo.controller.OrderDTO;
+import com.example.demo.controller.OrderMapper;
 import com.example.demo.model.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +14,8 @@ public class OrderService {
     @Autowired
     OrderRepository orderRepository;
 
-    public void add(Order order){
+    public void add(OrderDTO orderdto){
+        Order order= OrderMapper.convertToOrder(orderdto);
         orderRepository.save(order);
     }
     public List<Order> getAll(){

@@ -1,4 +1,5 @@
 package com.example.demo.model;
+import com.example.demo.service.EnumClient;
 import jakarta.persistence.*;
 @Entity
 @Table(name="clients")
@@ -21,7 +22,7 @@ public class Client {
     public Client() {
     }
 
-    public Client(String company_name, String ﬁrst_name, String last_name, String email, String phone, String address, String zip_code, String city, String country, int state) {
+    public Client(String company_name, String ﬁrst_name, String last_name, String email, String phone, String address, String zip_code, String city, String country, String state) {
         this.company_name = company_name;
         this.ﬁrst_name = ﬁrst_name;
         this.last_name = last_name;
@@ -31,7 +32,7 @@ public class Client {
         this.zip_code = zip_code;
         this.city = city;
         this.country = country;
-        this.state = state;
+        this.state = EnumClient.valueOf(state).ordinal();
     }
 
     public int getId() {

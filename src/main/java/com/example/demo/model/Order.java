@@ -1,4 +1,5 @@
 package com.example.demo.model;
+import com.example.demo.service.EnumOrder;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 @Entity
@@ -25,14 +26,14 @@ public class Order {
 
     public Order() {
     }
-    public Order(String type_presta, String designation, short nb_days, double unit_price, int state) {
+    public Order(String type_presta, String designation, short nb_days, double unit_price, String state) {
         this.type_presta = type_presta;
         this.designation = designation;
         this.nb_days = nb_days;
         this.unit_price = unit_price;
         this.total_exclude_taxe = unit_price*nb_days;
         this.total_with_taxe = unit_price*nb_days*1.2;
-        this.state = state;
+        this.state = EnumOrder.valueOf(state).ordinal();
     }
 
     public int getId() {

@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 import com.example.demo.model.Order;
+import com.example.demo.service.EnumClient;
 import com.example.demo.service.EnumOrder;
 public class OrderMapper {
     public static OrderDTO convertToDTO(Order entity){
@@ -14,5 +15,12 @@ public class OrderMapper {
             dto.setClient(entity.getClient());
             return dto;
         }
+
+    public static Order convertToOrder(OrderDTO dto){
+        Order order = new Order(dto.getTypePresta(), dto.getDesignation(), dto.getNbDays(), dto.getUnitPrice(), dto.getState());
+        return order;
+    }
+
+
     }
 

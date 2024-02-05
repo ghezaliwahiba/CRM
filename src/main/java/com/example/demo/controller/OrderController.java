@@ -30,8 +30,8 @@ public class OrderController {
         return dtos;
     }
     @PostMapping("orders")
-    public void addOrder(@RequestBody Order order) {
-        orderService.add(order);
+    public void addOrder(@RequestBody OrderDTO orderdto) {
+        orderService.add(orderdto);
     }
 
     @DeleteMapping("orders/{id}")
